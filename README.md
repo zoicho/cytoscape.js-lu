@@ -1,5 +1,10 @@
-cytoscape-layout-utilities
+cytoscape-lu
 ================================================================================
+
+forked from: https://github.com/iVis-at-Bilkent/cytoscape.js-layout-utilities
+- updated some packages only, mainly webpack
+ for better compiled outputs
+
 
 ## Description
 
