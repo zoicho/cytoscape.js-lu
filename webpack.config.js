@@ -2,7 +2,6 @@ const path = require('path');
 const pkg = require('./package.json');
 const camelcase = require('camelcase');
 const process = require('process');
-const webpack = require('webpack');
 const env = process.env;
 const NODE_ENV = env.NODE_ENV;
 const MIN = env.MIN;
@@ -24,12 +23,7 @@ let configs = [
               test: /\.tsx?$/,
               use: 'ts-loader',
               exclude: /node_modules/,
-          },
-          /* {
-            test: /\.tsx?$/,
-            use: 'babel-loader',
-            exclude: /node_modules/,
-          } */
+          }
       ]
     },
     resolve: {
@@ -46,18 +40,19 @@ let configs = [
     output: {
       path: path.join( __dirname ),
       filename: pkg.name + '.js',
-      library: camelcase( pkg.name ),
-      libraryTarget: 'umd'
+      library: {
+        name: camelcase( pkg.name ),
+        type: 'umd'
+      }
     },
     module: {
-      rules: [
-        /* { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' } */
-      ]
+      rules: []
     },
     externals: PROD ? Object.keys( pkg.dependencies || {} ) : [],
     optimization: {
       minimize: MIN ? true : false
-    }
+    },
+    target: 'web'
   }
 ];
 
