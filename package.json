@@ -1,6 +1,6 @@
 {
   "name": "cytoscape-lu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package of layout utilities for cytoscape.js",
   "main": "cytoscape-lu.js",
   "scripts": {
